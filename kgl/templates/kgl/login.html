@@ -1,0 +1,27 @@
+{% extends 'kgl/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<br><br>
+ <div class = "body container-fluid container login">
+     <div class="container container-fluid top">
+        <h1 class = "text-black text-center" style = "color: black ">LOGIN.</h1><br><br>  
+       </div>     
+  
+    <div class="container container-fluid">
+      
+        <form id = "form" method="POST" class = "loginform" style="border-radius: 25px;
+        border: 2px solid #19d4fc;  padding: 20px;
+        width: 400px;
+        height: 350px; "> 
+            {% csrf_token %}  
+            {{form | crispy}}
+            <br> <br> 
+            <input type="submit" name = "Submit" class="btn btn-info btn-danger btn-block" type="button">
+            <br> 
+                         
+      </form>      
+    </div>
+</div>  
+{% endblock %}

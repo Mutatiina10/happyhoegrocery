@@ -1,0 +1,43 @@
+{% extends 'kgl/base.html'%} {% block content%}
+<br />
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="text-center">ORDER SUMMARY</h1><br>
+          <h2 class="lead">Customer Name: {{receipt.issued_to | title}}</h2>
+        </div>
+        <div class="card-block">
+          <div class="table-responsive">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <td><strong>Item Name</strong></td>
+                  <td class="text-xs-center"><strong>Item Quantity</strong></td>
+                  <td class="text-xs-right"><strong>Total Bill(Ugx)</strong></td>
+                  <td class="text-xs-right"><strong>Amount Paid(Ugx)</strong></td>
+                  <td class="text-xs-right">
+                    <strong>Total change(UgX)</strong>
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{receipt.item| title}}</td>
+                  <td class="text-xs-center">{{receipt.quantity }}</td>
+                  <td class="text-xs-center">Ug{{receipt.get_total | title}}</td>
+                  <td class="text-xs-right">Ugx{{ receipt.amount_received }}</td>
+                  <td class="text-xs-right">Ugx{{ receipt.get_change }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

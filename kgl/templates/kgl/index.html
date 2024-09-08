@@ -1,0 +1,61 @@
+{% extends 'kgl/base.html'%} {% block content%}
+<br></br>
+
+<div class = "container">
+  <h1 class= "text-center">ITEMS IN STOCK</h1>
+  <br>
+
+  <div class = "container">
+    <form action = "" method = "GET">
+      {{product_filters.form}}
+      <input 
+      type = "submit"
+      value = "Search Products"
+      class="btn btn-secondary btn"/>
+    </form>
+  </div>
+
+  <br>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Category</th>
+        <th scope="col">Item Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Unit Price(UGX)</th>
+        <th scope = "col">Detail</th>
+      </tr>
+    </thead>
+    {% for product in products%}
+    <tbody>
+      <tr>    
+        <td>{{product.category_name}}</td>
+        <td>{{product.item_name}}</td>
+        <td>{{product.total_quantity}}</td>
+        <td>UGX{{product.unit_price}}</td>
+        <td><a href="{% url 'product_detail' product.id %}"
+              ><input
+                type="submit"
+                value="BUY ITEM"
+                class="btn btn-secondary btn"
+                type="button"
+            /></a></td>
+
+
+<td><a href="{% url 'delete_detail' product.id %}"
+              ><input
+                type="submit"
+                value="Delete ITEM"
+                class="btn btn-secondary btn"
+                type="button"
+            /></a></td>
+
+
+
+
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+</div>
+{% endblock%}
