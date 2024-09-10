@@ -15,7 +15,7 @@ class Stockx(models.Model):
     total_quantity = models.IntegerField(default=0, null = True, blank=True)
     issued_quantity = models.IntegerField(default=0, null = True, blank=True)
     # .....
-    image = models.ImageField(upload_to='images/', null=True) # U can change to `FileField` for files
+    #image = models.ImageField(upload_to='images/', null=True) # U can change to `FileField` for files
     def __str__(self):
         return self.item_name
 

@@ -18,44 +18,287 @@
    
 </head>
 <body>
+  <br><br>
+  <div class = "container-fluid">
+    <div class="justify-center">
+      <h1 class="text-center"><img src="/static/kgl/images/grocery.jpg" width="70px" height="70px" alt="">Happy Hoe Grocery</h1>
+    </div>
+    <br>
+    <h2 class= "text-center">ITEMS IN STOCK</h2>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-outline-primary me-md-2" type="submit"><a class="text-white" href="{% url 'login' %}">Login</a></button>
+    </div>
+
+   <div class="row">
+    <div class="col-md-6 col-xl-3">
+        <div class="card-box product-box">
+            <br><br>
+
+            
+
+            <div class="bg-light">
+                <img src="{% static 'kgl/images/beans.jpg' %}" alt="product-pic" class="img-fluid" />
+            </div>
+
+            <div class="product-info">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">BEANS</a> </h5>
+                        <div class="text-warning mb-2 font-13">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <h5 class="m-0"> <span class="text-muted">Unit Price</span></h5>
+                    </div>
+                    <div class="col-auto">
+                        <div class="product-price-tag">
+                            Ugx:25,000
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+            </div> <!-- end product info-->
+        </div> <!-- end card-box-->
+    </div> <!-- end col-->
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card-box product-box">
+            <br><br>
+
+
+            <div class="bg-light">
+                <img src="{% static 'kgl/images/maize.jpg' %}" alt="product-pic" class="img-fluid"/>
+             </div>
+
+            <div class="product-info">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">MAIZE</a> </h5>
+                        <div class="text-warning mb-2 font-13">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <h5 class="m-0"> <span class="text-muted">Unit Price</span></h5>
+                    </div>
+                    <div class="col-auto">
+                        <div class="product-price-tag">
+                            Ugx:15,000
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+            </div> <!-- end product info-->
+        </div> <!-- end card-box-->
+    </div> <!-- end col-->
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card-box product-box">
+            <br><br>
+
+
+            <div class="bg-light">
+                <img src="{% static 'kgl/images/rice (1).jpg' %}" alt="product-pic" class="img-fluid"/>
+             </div>
+
+            <div class="product-info">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">RICE</a> </h5>
+                        <div class="text-warning mb-2 font-13">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <h5 class="m-0"> <span class="text-muted">Unit Price</span></h5>
+                    </div>
+                    <div class="col-auto">
+                        <div class="product-price-tag">
+                            Ugx:60,000
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+            </div> <!-- end product info-->
+        </div> <!-- end card-box-->
+    </div> <!-- end col-->
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card-box product-box">
+            <br><br>
+
+
+            <div class="bg-light">
+                <img src="{% static 'kgl/images/sorghum.webp' %}" alt="product-pic" class="img-fluid" />
+             </div>
+
+            <div class="product-info">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">SORGHUM</a> </h5>
+                        <div class="text-warning mb-2 font-13">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            
+                        </div>
+                        <h5 class="m-0"> <span class="text-muted">Unit Price</span></h5>
+                    </div>
+                    <div class="col-auto">
+                        <div class="product-price-tag">
+                            Ugx:45,000
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+            </div> <!-- end product info-->
+        </div> <!-- end card-box-->
+    </div> <!-- end col-->
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card-box product-box">
+            <br><br>
+
+
+            <div class="bg-light">
+                <img src="{% static 'kgl/images/gnuts.jpg' %}" alt="product-pic" class="img-fluid" />
+             </div>
+
+            <div class="product-info">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">G-NUTS</a> </h5>
+                        <div class="text-warning mb-2 font-13">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            
+                        </div>
+                        <h5 class="m-0"> <span class="text-muted">Unit Price</span></h5>
+                    </div>
+                    <div class="col-auto">
+                        <div class="product-price-tag">
+                            Ugx:30,000
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+            </div> <!-- end product info-->
+        </div> <!-- end card-box-->
+    </div> <!-- end col-->
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card-box product-box">
+            <br><br>
+
+
+            <div class="bg-light">
+                <img src="{% static 'kgl/images/soyabeans.jpg' %}" alt="product-pic" class="img-fluid" />
+             </div>
+
+            <div class="product-info">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">SOYA BEANS</a> </h5>
+                        <div class="text-warning mb-2 font-13">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            
+                        </div>
+                        <h5 class="m-0"> <span class="text-muted">Unit Price</span></h5>
+                    </div>
+                    <div class="col-auto">
+                        <div class="product-price-tag">
+                            Ugx:40,000
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+            </div> <!-- end product info-->
+        </div> <!-- end card-box-->
+    </div> <!-- end col-->
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card-box product-box">
+            <br><br>
+
+
+            <div class="bg-light">
+                <img src="{% static 'kgl/images/millet.jpg' %}" alt="product-pic" class="img-fluid" />
+             </div>
+
+            <div class="product-info">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">MILLET</a> </h5>
+                        <div class="text-warning mb-2 font-13">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            
+                        </div>
+                        <h5 class="m-0"> <span class="text-muted">Pending</span></h5>
+                    </div>
+                    <div class="col-auto">
+                        <div class="product-price-tag">
+                            
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+            </div> <!-- end product info-->
+        </div> <!-- end card-box-->
+    </div> <!-- end col-->
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card-box product-box">
+            <br><br>
+
+
+            <div class="bg-light">
+                <img src="{% static 'kgl/images/cowpeas.webp' %}" alt="product-pic" class="img-fluid" />
+             </div>
+
+            <div class="product-info">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">COW PEAS</a> </h5>
+                        <div class="text-warning mb-2 font-13">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            
+                        </div>
+                        <h5 class="m-0"> <span class="text-muted">Unit Price</span></h5>
+                    </div>
+                    <div class="col-auto">
+                        <div class="product-price-tag">
+                            Ugx:35,000
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+            </div> <!-- end product info-->
+        </div> <!-- end card-box-->
+    </div> <!-- end col-->
+</div>
    
-   <br></br>
-   
-   <div class = "container">
-     <h1 class= "text-center">ITEMS IN STOCK</h1>
+
+ <!-- end container -->
      <br>
         
-     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-       <button class="btn btn-outline-primary me-md-2" type="submit"><a class="text-white" href="{% url 'login' %}">Login</a></button>
-     </div>
+     
    
      
     
    
-     <br>
-     <table class="table" enctype="multipart">
-       <thead class="thead-dark">
-         <tr>
-           <th scope="col">Branch</th>
-           <th scope="col">Item Name</th>
-           <th scope="col">Quantity</th>
-           <th scope="col">Image</th>
-          
-         </tr>
-       </thead>
-       {% for product in products%}
-       <tbody>
-         <tr>    
-           <td>{{product.stock_branch_name}}</td>
-           <td>{{product.item_name}}</td>
-           <td>{{product.total_quantity}}</td>
-           <td>{{product.image}}</td>
      
-         </tr>
-       </tbody>
-       {% endfor %}
-     </table>
-   </div>
   <br><br><br>
    <div class="d-grid gap-2 col-6 mx-auto">
     <div class="text-center">

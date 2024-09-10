@@ -13,9 +13,9 @@ def index(request):
     products = Stockx.objects.all().order_by('-id')
     return render(request,"kgl/index.html", {'products': products})
 
-#def sample(request):
-#    products = Stockx.objects.all()
-#    return render(request,"kgl/sample.html", {'product': products})
+def sample(request):
+    products = Stockx.objects.all()
+    return render(request,"kgl/sample.html", {'product': products})
 
 
 @login_required
