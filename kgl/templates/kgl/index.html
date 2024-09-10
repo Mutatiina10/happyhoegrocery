@@ -1,61 +1,73 @@
-{% extends 'kgl/base.html'%} {% block content%}
-<br></br>
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title style="color: black ">MUTAIINA N. EDGAR</title>
+    <link rel = "stylesheet" href = {% static 'kgl/main.css' %}>
+     <!-- Raleway font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <!-- Montserrat font -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
-<div class = "container">
-  <h1 class= "text-center">ITEMS IN STOCK</h1>
-  <br>
-
-  <div class = "container">
-    <form action = "" method = "GET">
-      {{product_filters.form}}
-      <input 
-      type = "submit"
-      value = "Search Products"
-      class="btn btn-secondary btn"/>
-    </form>
-  </div>
-
-  <br>
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Category</th>
-        <th scope="col">Item Name</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Unit Price(UGX)</th>
-        <th scope = "col">Detail</th>
-      </tr>
-    </thead>
-    {% for product in products%}
-    <tbody>
-      <tr>    
-        <td>{{product.category_name}}</td>
-        <td>{{product.item_name}}</td>
-        <td>{{product.total_quantity}}</td>
-        <td>UGX{{product.unit_price}}</td>
-        <td><a href="{% url 'product_detail' product.id %}"
-              ><input
-                type="submit"
-                value="BUY ITEM"
-                class="btn btn-secondary btn"
-                type="button"
-            /></a></td>
-
-
-<td><a href="{% url 'delete_detail' product.id %}"
-              ><input
-                type="submit"
-                value="Delete ITEM"
-                class="btn btn-secondary btn"
-                type="button"
-            /></a></td>
-
-
-
-
-      </tr>
-    </tbody>
-    {% endfor %}
-  </table>
-</div>
-{% endblock%}
+   
+</head>
+<body>
+   
+   <br></br>
+   
+   <div class = "container">
+     <h1 class= "text-center">ITEMS IN STOCK</h1>
+     <br>
+        
+     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+       <button class="btn btn-outline-primary me-md-2" type="submit"><a class="text-white" href="{% url 'login' %}">Login</a></button>
+     </div>
+   
+     
+    
+   
+     <br>
+     <table class="table" enctype="multipart">
+       <thead class="thead-dark">
+         <tr>
+           <th scope="col">Branch</th>
+           <th scope="col">Item Name</th>
+           <th scope="col">Quantity</th>
+           <th scope="col">Image</th>
+          
+         </tr>
+       </thead>
+       {% for product in products%}
+       <tbody>
+         <tr>    
+           <td>{{product.stock_branch_name}}</td>
+           <td>{{product.item_name}}</td>
+           <td>{{product.total_quantity}}</td>
+           <td>{{product.image}}</td>
+     
+         </tr>
+       </tbody>
+       {% endfor %}
+     </table>
+   </div>
+  <br><br><br>
+   <div class="d-grid gap-2 col-6 mx-auto">
+    <div class="text-center">
+      <footer class="">
+        <div class="footer">
+          &copy; Happy Hoe Grocery <br> Designed by MUTATIINA N. EDGAR 
+        </footer>
+      </footer>
+    </div>
+   </div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

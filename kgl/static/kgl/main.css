@@ -1,7 +1,7 @@
 html,body {
     position: relative;
     overflow-x: hidden;
-    background:  url('/static/images/img6.jpg');
+    background:  url('kgl/static/kgl/images/index.jpg');
     width: 100% !important;
     height: 100vh;
     display: table;
@@ -16,7 +16,7 @@ html,body {
 }
   
 body{
-      background-color: hsl(0, 0%, 98%);
+      background-color: #e0d5bf;
       font-family: 'raleway';
  }
     
@@ -30,7 +30,7 @@ form {
 
 
 .navbar {
-    background-color: #82be7f;
+    background-color: #96cdd8;
 }
 
 .navbar li a {

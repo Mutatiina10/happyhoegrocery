@@ -1,0 +1,45 @@
+{% extends 'kgl/base.html'%}
+ {% block content%}
+{% load static %}
+<br></br>
+
+<div class = "container">
+  <h1 class= "text-center">ITEMS IN STOCK</h1>
+  <br>
+     
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-outline-danger me-md-2" type="submit"><a href="{% url 'login' %}">Login</a></button>
+  </div>
+
+  <div class = "container">
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-danger" type="submit">Search</button>
+    </form>
+  </div>
+
+ 
+
+  <br>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Branch</th>
+        <th scope="col">Item Name</th>
+        <th scope="col">Quantity</th>
+       
+      </tr>
+    </thead>
+    {% for product in products%}
+    <tbody>
+      <tr>    
+        <td>{{product.stock_branch_name}}</td>
+        <td>{{product.item_name}}</td>
+        <td>{{product.total_quantity}}</td>
+  
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+</div>
+{% endblock%}

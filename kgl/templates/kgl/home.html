@@ -1,30 +1,45 @@
-{% extends 'kgl/base.html'%} {% block content%}
+{% extends 'kgl/base.html' %}
+ {% block content%}
 <br></br>
 
-<div class = "container">
-    <a href="{% url 'issue_item' product.id %}" ><input type="submit" value="Buy Item" class="btn btn-secondary" btn type="button"/></a>
-    <a href="{% url 'add_to_stock' product.id %}" ><input type= "submit" value="Add to Stock" class="btn btn-secondary btn" type="button"/></a>
+{% load static %}
+
+<br></br>
+
+<div class = "container-fluid">
+  <form class="d-flex">
+   {{ product_filters.form.as_p }}
+    <button class="btn btn-primary " type="submit" method="POST">Search</button>
+  </form>
 </div>
+<br>
 
-<br></br>
+
 <div class = "container">
   <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">Category</th>
+        <th scope="col">Branch</th>
         <th scope="col">Item Name</th>
         <th scope="col">Quantity</th>
-        <th scope="col">Unit Price(UGX)</th>   
+        <th scope="col">Unit Price(UGX)</th> 
+        <th scope="col">View</th>  
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
+      {% for product in products %}
       <tr>    
-        <td>{{product.category_name}}</td>
+        <td>{{product.stock_branch_name}}</td>
         <td>{{product.item_name}}</td>
         <td>{{product.total_quantity}}</td>
-        <td>UGX{{product.unit_price}}</td>   
+        <td>UGX{{product.unit_price}}</td>
+        <td><a href="{% url 'product_detail' product.id %}"><button class="btn btn-outline-primary btn font-weight-bolder" style="width: 100px; height: 50px;">View Details</button></a></td>
+        <td><a href="{% url 'delete_detail' product.id %}"><button class="btn btn-outline-danger btn" style="width: 120px;">Delete Item</button></a></td>   
       </tr>
-    </tbody>  
+      {% endfor %}
+    </tbody> 
+
   </table>
 </div>
 {% endblock%}

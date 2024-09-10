@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title style="color: black ">MindLyfe</title>
-    <link rel = "stylesheet" href = {% static 'css/main.css' %}>
+    <title style="color: black ">MUTAIINA N. EDGAR</title>
+    <link rel = "stylesheet" href = {% static 'kgl/main.css' %}>
      <!-- Raleway font -->
     <link
       href="https://fonts.googleapis.com/css?family=Raleway"
@@ -16,8 +16,11 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark "> 
-        <a class="nav-link" href=""><h1 class="navbar-brand" style = "font-size: 25px">MindLyfe</h1></a>
+  <div class="container-fluid">
+    <div color="alert alert-danger">
+      <nav class="navbar navbar-expand-lg navbar-dark "> 
+        <img src="/static/kgl/images/grocery.jpg" width="70px" height="70px" alt="">
+        <a class="nav-link" href=""><h1 class="navbar-brand" style = "font-size: 25px">MEN's Version of Happy Hoe Grocery Project</h1></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,9 +41,22 @@
               </li>
             {% endif %}
           </ul>
-     </nav>
+      </nav>
+    </div>
+  </div>
+    
     {% block content%}
     {% endblock%}
+    <br><br>
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <div class="text-center">
+        <footer class="text-white">
+          <div class="footer">
+            &copy; Happy Hoe Grocery <br> Designed by MUTATIINA N. EDGAR 
+          </footer>
+        </footer>
+      </div>
+     </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

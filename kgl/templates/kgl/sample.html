@@ -1,0 +1,17 @@
+{% extends "kgl/base.html" %}
+
+{% block content %}
+
+<div class="grid grid-cols-5 p-4 gap-2">
+    {% for product in products %}
+        <a href="/view/{{ product.id }}" class="bg-white shadow rounded-lg">
+            <img scr="/static/{{ product.image }}" alt="" class="h-(200px)">
+            <p class="font-semibold text-lg px-2">{{ product.item_name }}</p>
+            <div class="flex justify-between p-2">
+                <p class="text-lg"> Ugx {{ product.unit_price}} </p>
+                <p class="text-amber-500"> {{ product.total_quantity }} Available </p>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+{% endblock  %}

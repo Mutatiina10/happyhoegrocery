@@ -1,5 +1,6 @@
 {% extends 'kgl/base.html'%} {% block content%}
-<br />
+<br><br>
+{% load static %}
 
 <div class="container">
   <div class="row">
@@ -15,6 +16,7 @@
               <thead>
                 <tr>
                   <td><strong>Item Name</strong></td>
+                  <td><strong>Branch Name</strong></td>
                   <td class="text-xs-center"><strong>Item Quantity</strong></td>
                   <td class="text-xs-right"><strong>Total Bill(Ugx)</strong></td>
                   <td class="text-xs-right"><strong>Amount Paid(Ugx)</strong></td>
@@ -24,13 +26,16 @@
                 </tr>
               </thead>
               <tbody>
+                {% for sale in sales  %}
                 <tr>
-                  <td>{{receipt.item| title}}</td>
-                  <td class="text-xs-center">{{receipt.quantity }}</td>
-                  <td class="text-xs-center">Ug{{receipt.get_total | title}}</td>
-                  <td class="text-xs-right">Ugx{{ receipt.amount_received }}</td>
-                  <td class="text-xs-right">Ugx{{ receipt.get_change }}</td>
+                  <td>{{sale.item| title}}</td>
+                  <td class="text-xs-center">{{sale.branch_name }}</td>
+                  <td class="text-xs-center">{{sale.quantity }}</td>
+                  <td class="text-xs-center">Ugx{{sale.get_total | title}}</td>
+                  <td class="text-xs-right">Ugx{{ sale.amount_received }}</td>
+                  <td class="text-xs-right">Ugx{{ sale.get_change }}</td>
                 </tr>
+                {% endfor %}
               </tbody>
             </table>
           </div>
