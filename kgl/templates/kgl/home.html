@@ -8,8 +8,8 @@
 
 <div class = "container-fluid">
   <form class="d-flex">
-   {{ product_filters.form.as_p }}
-    <button class="btn btn-primary " type="submit" method="POST">Search</button>
+   {{ product_filters.form.as_p }} 
+    <button class="btn btn-outline-danger btn" style="width: 120px; height: 30px;" type="submit" method="POST">Search</button>
   </form>
 </div>
 <br>
@@ -35,7 +35,7 @@
         <td>{{product.total_quantity}}</td>
         <td>UGX{{product.unit_price}}</td>
         <td><a href="{% url 'product_detail' product.id %}"><button class="btn btn-outline-primary btn font-weight-bolder" style="width: 100px; height: 50px;">View Details</button></a></td>
-        <td><a href="{% url 'delete_detail' product.id %}"><button class="btn btn-outline-danger btn" style="width: 120px;">Delete Item</button></a></td>   
+        <td><a href="{% url 'delete_detail' product.id %}"><button class="btn btn-outline-danger btn" style="width: 120px; height: 50px;">Delete Item</button></a></td>   
       </tr>
       {% endfor %}
     </tbody> 

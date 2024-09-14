@@ -7,7 +7,7 @@ from .models import * #(* assitaris means"all" or write all the models you creat
 #borrowing decorators from django to restrict access to our pages.
 from django.contrib.auth.decorators import login_required
 from .forms import *
-from django.db.models import  Sum
+from django.db.models import Sum
 # Create your views here.
 def index(request):
     products = Stockx.objects.all().order_by('-id')
@@ -94,11 +94,11 @@ def receipt_detail(request, receipt_id):
 @login_required
 def all_sales(request):
     sales = Sales.objects.all().order_by('-id')
-    total_expected=sum([items.get_total() for items in sales])
-    total = sum([items.amount_received for items in sales])
-    total_change = sum([items.get_change() for items in sales])
+    total_expected = sum([items.get_total() or 0  for items in sales])
+    total = sum([items.amount_received or 0 for items in sales])
+    total_change = sum([items.get_change() or 0  for items in sales])
     net = total_expected - total
-    return render(request, 'kgl/all_sales.html', {'sales': sales, 'total':total, 'total_change':total_change, 'net':net, 'total_expected':total_expected})
+    return render(request, 'digitalbook/all_sales.html', {'sales': sales, 'total':total, 'total_change':total_change, 'net':net, 'total_expected':total_expected})
 
 def deffered_payments(request):
     if request.method == 'POST':
@@ -113,7 +113,7 @@ def deffered_payments(request):
 def deffered_payments_list(request):
     payment = Deffered_payments.objects.all().order_by('-id')
     return render(request, 'kgl/deffered_payments_list.html', {'payments': payment})
-  
+
 
 def add_product(request):
     if request.method == 'POST':

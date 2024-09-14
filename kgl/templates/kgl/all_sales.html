@@ -3,27 +3,48 @@
 {% load static %}
 <br></br>
 
-<div class = "container">
-<h1 class = "text-center">TOTAL SALES MADE</h1><br>
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Total Amount Received</th>
-        <th scope="col">Total Change Given</th>
-        <th scope="col">Net Amount</th>
-      </tr>
-    </thead>  
-    <tbody>
-      <tr>    
-        <td>UGX{{total}}</td>
-        <td>UGX{{change}}</td>
-        <td>UGX{{net}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<br></br>
+<div class="container">
+  <h1 class="text-center">TOTAL SALES MADE</h1><br>
 
+    
+    <div class="row text-center">
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Amount Expected </h5>
+                    <p class="card-text">UGX{{total_expected}}</p>
+                </div>
+            </div>
+        </div>
+    <div class="row text-center">
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Amount Received</h5>
+                    <p class="card-text">UGX{{total}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    
+                    <h5 class="card-title">Total Debt Issued </h5>
+                    <p class="card-text">UGX{{total_change}}</p>
+              
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Net Amount</h5>
+                    <p class="card-text">UGX{{net}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class = "container">
   <table class="table">
     <thead class="thead-dark">

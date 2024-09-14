@@ -1,0 +1,37 @@
+{% extends 'kgl/base.html'%}
+ {% block content%}
+{% load static %}
+<br></br>
+
+<h1 class = "text-center">CREDIT SALES MADE</h1><br>
+<br></br>
+
+<div class = "container">
+  <table class="table">
+    <thead class="thead-danger">
+      <tr>
+        <th scope="col">Customer name</th>
+        <th scope="col">Item Bought</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Unit Price(UGX)</th>
+        <th scope="col">Total Cost</th>
+        <th scope="col">Amount Paid</th>
+        <th scope="col">Balance</th>
+      </tr>
+    </thead>
+    {% for sale in sales %}
+    <tbody>
+      <tr>    
+        <td>{{sale.issued_to | title}}</td>
+        <td>{{sale.item | title}}</td>
+        <td>{{sale.quantity}}</td>
+        <td>UGX{{sale.unit_price}}</td>
+        <td>UGX{{sale.get_total}}</td>
+        <td>UGX{{sale.amount_received}}</td>
+        <td>UGX{{sale.get_change}}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+</div>
+{% endblock%}

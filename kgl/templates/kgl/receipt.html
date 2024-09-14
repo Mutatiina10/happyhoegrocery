@@ -1,48 +1,30 @@
-{% extends 'kgl/base.html'%} {% block content%}
-<br><br>
-{% load static %}
-
+{% extends 'kgl/base.html'%}
+ {% block content%}
+<br /><br>
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
-          <h1 class="text-center">ORDER SUMMARY</h1><br>
-          <h2 class="lead">Customer Name: {{receipt.issued_to | title}}</h2>
-        </div>
-        <div class="card-block">
-          <div class="table-responsive">
-            <table class="table table-sm">
-              <thead>
-                <tr>
-                  <td><strong>Item Name</strong></td>
-                  <td><strong>Branch Name</strong></td>
-                  <td class="text-xs-center"><strong>Item Quantity</strong></td>
-                  <td class="text-xs-right"><strong>Total Bill(Ugx)</strong></td>
-                  <td class="text-xs-right"><strong>Amount Paid(Ugx)</strong></td>
-                  <td class="text-xs-right">
-                    <strong>Total change(UgX)</strong>
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                {% for sale in sales  %}
-                <tr>
-                  <td>{{sale.item| title}}</td>
-                  <td class="text-xs-center">{{sale.branch_name }}</td>
-                  <td class="text-xs-center">{{sale.quantity }}</td>
-                  <td class="text-xs-center">Ugx{{sale.get_total | title}}</td>
-                  <td class="text-xs-right">Ugx{{ sale.amount_received }}</td>
-                  <td class="text-xs-right">Ugx{{ sale.get_change }}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-        </div>
+  <h1 class="card-header text-center">ALL RECEIPTS</h1><br>
+  {% for sale in sales %}
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">Customer : {{sale.issued_to | title}}</h3>
+      <h6 class="card-text">Item : {{sale.item}}</h6>
+      <h6 class="card-text">Amount Paid:  UGX{{ sale.amount_received }}</h6>
+      <h6 class="card-text">Quantity: {{sale.quantity }}</h6>
+      
+      <div style="flex: 1">
+     
+        <a href="{% url 'receipt_detail' sale.id %}">
+          <input
+            type="submit"
+            value="Final Receipt"
+            class="btn btn-danger"
+            type="button"
+          />
+        </a>
       </div>
     </div>
   </div>
+  <br />
+  {% endfor %}
 </div>
-
 {% endblock %}
