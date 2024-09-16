@@ -42,6 +42,7 @@ urlpatterns = [
     path('receipt_detail/<int:receipt_id>/', views.receipt_detail, name='receipt_detail'),
     path('record_sales/', views.record_sales, name='record_sales'),
     path('add_to_stock/<str:pk>/', views.add_to_stock, name='add_to_stock'),
+    path('all_sales/', views.all_sales, name='all_sales'),
 ]
 
 if settings.DEBUG:

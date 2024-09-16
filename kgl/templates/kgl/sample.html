@@ -1,278 +1,58 @@
-{% extends "kgl/base.html" %}
+{% extends 'Grocery_app/base.html'%} {% block content%}
+<br></br>
 
-{% load static %}
-
-{% block styles %}
-    <link rel="stylesheet" href="{% static "css/jquery-jvectormap-1.2.2.css" %}">
-    <link rel="stylesheet" href="{% static "css/bootstrap-material.min.css" %}">
-    <link rel="stylesheet" href="{% static "css/app-material.min.css" %}">
-    <link rel="stylesheet" href="{% static "css/icons.min.css" %}">
-{% endblock  %}
-
-{% block title %}Products{% endblock  %}
-
-{% block content %}
-<div class="row">
-    <div class="col-md-6 col-xl-3">
-        <div class="card-box product-box">
-            <br><br>
-
-            
-
-            <div class="bg-light">
-                <img src="{% static 'kgl/images/beans.jpg' %}" alt="product-pic" class="img-fluid" />
-            </div>
-
-            <div class="product-info">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">BEANS</a> </h5>
-                        <div class="text-warning mb-2 font-13">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <h5 class="m-0"> <span class="text-muted"></span></h5>
-                    </div>
-                    <div class="col-auto">
-                        <div class="product-price-tag">
-                            $39
-                        </div>
-                    </div>
-                </div> <!-- end row -->
-            </div> <!-- end product info-->
-        </div> <!-- end card-box-->
-    </div> <!-- end col-->
-
-    <div class="col-md-6 col-xl-3">
-        <div class="card-box product-box">
-            <br><br>
-
-
-            <div class="bg-light">
-                <img src="{% static 'kgl/images/maize.jpg' %}" alt="product-pic" class="img-fluid"/>
-             </div>
-
-            <div class="product-info">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">MAIZE</a> </h5>
-                        <div class="text-warning mb-2 font-13">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <h5 class="m-0"> <span class="text-muted"></span></h5>
-                    </div>
-                    <div class="col-auto">
-                        <div class="product-price-tag">
-                            $98
-                        </div>
-                    </div>
-                </div> <!-- end row -->
-            </div> <!-- end product info-->
-        </div> <!-- end card-box-->
-    </div> <!-- end col-->
-
-    <div class="col-md-6 col-xl-3">
-        <div class="card-box product-box">
-            <br><br>
-
-
-            <div class="bg-light">
-                <img src="{% static 'kgl/images/rice (1).jpg' %}" alt="product-pic" class="img-fluid"/>
-             </div>
-
-            <div class="product-info">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">RICE</a> </h5>
-                        <div class="text-warning mb-2 font-13">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <h5 class="m-0"> <span class="text-muted"></span></h5>
-                    </div>
-                    <div class="col-auto">
-                        <div class="product-price-tag">
-                            $49
-                        </div>
-                    </div>
-                </div> <!-- end row -->
-            </div> <!-- end product info-->
-        </div> <!-- end card-box-->
-    </div> <!-- end col-->
-
-    <div class="col-md-6 col-xl-3">
-        <div class="card-box product-box">
-            <br><br>
-
-
-            <div class="bg-light">
-                <img src="{% static 'kgl/images/sorghum.webp' %}" alt="product-pic" class="img-fluid" />
-             </div>
-
-            <div class="product-info">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">SORGHUM</a> </h5>
-                        <div class="text-warning mb-2 font-13">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            
-                        </div>
-                        <h5 class="m-0"> <span class="text-muted">Pending</span></h5>
-                    </div>
-                    <div class="col-auto">
-                        <div class="product-price-tag">
-                            $29
-                        </div>
-                    </div>
-                </div> <!-- end row -->
-            </div> <!-- end product info-->
-        </div> <!-- end card-box-->
-    </div> <!-- end col-->
-
-    <div class="col-md-6 col-xl-3">
-        <div class="card-box product-box">
-            <br><br>
-
-
-            <div class="bg-light">
-                <img src="{% static 'kgl/images/gnuts.jpg' %}" alt="product-pic" class="img-fluid" />
-             </div>
-
-            <div class="product-info">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">G-NUTS</a> </h5>
-                        <div class="text-warning mb-2 font-13">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            
-                        </div>
-                        <h5 class="m-0"> <span class="text-muted"></span></h5>
-                    </div>
-                    <div class="col-auto">
-                        <div class="product-price-tag">
-                            $29
-                        </div>
-                    </div>
-                </div> <!-- end row -->
-            </div> <!-- end product info-->
-        </div> <!-- end card-box-->
-    </div> <!-- end col-->
-
-    <div class="col-md-6 col-xl-3">
-        <div class="card-box product-box">
-            <br><br>
-
-
-            <div class="bg-light">
-                <img src="{% static 'kgl/images/soyabeans.jpg' %}" alt="product-pic" class="img-fluid" />
-             </div>
-
-            <div class="product-info">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">SOYA BEANS</a> </h5>
-                        <div class="text-warning mb-2 font-13">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            
-                        </div>
-                        <h5 class="m-0"> <span class="text-muted"></span></h5>
-                    </div>
-                    <div class="col-auto">
-                        <div class="product-price-tag">
-                            $29
-                        </div>
-                    </div>
-                </div> <!-- end row -->
-            </div> <!-- end product info-->
-        </div> <!-- end card-box-->
-    </div> <!-- end col-->
-
-    <div class="col-md-6 col-xl-3">
-        <div class="card-box product-box">
-            <br><br>
-
-
-            <div class="bg-light">
-                <img src="{% static 'kgl/images/millet.jpg' %}" alt="product-pic" class="img-fluid" />
-             </div>
-
-            <div class="product-info">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">MILLET</a> </h5>
-                        <div class="text-warning mb-2 font-13">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            
-                        </div>
-                        <h5 class="m-0"> <span class="text-muted">Pending</span></h5>
-                    </div>
-                    <div class="col-auto">
-                        <div class="product-price-tag">
-                            
-                        </div>
-                    </div>
-                </div> <!-- end row -->
-            </div> <!-- end product info-->
-        </div> <!-- end card-box-->
-    </div> <!-- end col-->
-
-    <div class="col-md-6 col-xl-3">
-        <div class="card-box product-box">
-            <br><br>
-
-
-            <div class="bg-light">
-                <img src="{% static 'kgl/images/cowpeas.webp' %}" alt="product-pic" class="img-fluid" />
-             </div>
-
-            <div class="product-info">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">COW PEAS</a> </h5>
-                        <div class="text-warning mb-2 font-13">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            
-                        </div>
-                        <h5 class="m-0"> <span class="text-muted"></span></h5>
-                    </div>
-                    <div class="col-auto">
-                        <div class="product-price-tag">
-                            $29
-                        </div>
-                    </div>
-                </div> <!-- end row -->
-            </div> <!-- end product info-->
-        </div> <!-- end card-box-->
-    </div> <!-- end col-->
+<div class = "container">
+<h1 class = "text-center">TOTAL SALES MADE</h1><br>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Total Amount Expected</th>
+        <th scope="col">Total Amount Received</th>
+        <th scope="col">Total Debt</th>
+        <th scope="col">Net Amount</th>
+      </tr>
+    </thead>  
+    <tbody>
+      <tr>    
+        <td>UGX{{total_expected}}</td>
+        <td>UGX{{total}}</td>
+        <td>UGX{{total_change}}</td>
+        <td>UGX{{net}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+<br></br>
 
-{% endblock  %}
+<div class = "container">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Customer name</th>
+        <th scope="col">Item Bought</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Unit Price(UGX)</th>
+        <th scope="col">Total Cost</th>
+        <th scope="col">Amount Paid</th>
+        <th scope="col">Change Collected</th>
+      </tr>
+    </thead>
+    {% for sale in sales %}
+    <tbody>
+      <tr> 
+        <!--<a href="/receipt_detail/{{ sale.id }}"></a>-->   
+        <td>{{sale.issued_to | title}}</td>
+        <td>{{sale.item | title}}</td>
+        <td>{{sale.quantity}}</td>
+        <td>UGX{{sale.unit_price}}</td>
+        <td>UGX{{sale.get_total}}</td>
+        <td>UGX{{sale.amount_received}}</td>
+        <td>UGX{{sale.get_change}}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+</div><br><br>
 
-{% block scripts %}
-    <script src="{% static "js/app.min.js" %}"></script>
-{% endblock  %}
+
+{% endblock%}

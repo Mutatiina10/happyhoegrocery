@@ -8,14 +8,22 @@ from .models import * #(* assitaris means"all" or write all the models you creat
 from django.contrib.auth.decorators import login_required
 from .forms import *
 from django.db.models import Sum
+from .models import Sale
 # Create your views here.
 def index(request):
     products = Stockx.objects.all().order_by('-id')
     return render(request,"kgl/index.html", {'products': products})
 
+#def sample(request):
+   # products = Stockx.objects.all()
 def sample(request):
-    products = Stockx.objects.all()
-    return render(request,"kgl/sample.html", {'product': products})
+    sales = Sale.objects.all().order_by('-id')
+    total_expected = sum([items.get_total() or 0  for items in sales])
+    total = sum([items.amount_received or 0 for items in sales])
+    total_change = sum([items.get_change() or 0  for items in sales])
+    net = total_expected - total
+    return render(request, 'kgl/sample.html', {'sales': sales, 'total': total, 'total_change': total_change, 'net': net, 'total_expected': total_expected})
+   # return render(request,"kgl/sample.html", {'product': products})
 
 
 @login_required
@@ -80,26 +88,25 @@ def log_out(request):
 
 @login_required
 def receipt(request):
-    sales = Sales.objects.all().order_by('-id')
+    sales = Sale.objects.all().order_by('-id')
     return render(request,'kgl/receipt.html', {'sales': sales})
 
 
 
 @login_required
 def receipt_detail(request, receipt_id):
-    receipt = Sales.objects.get(id=receipt_id)
+    receipt = Sale.objects.get(id=receipt_id)
     return render(request, 'kgl/receipt_detail.html', {'receipt':receipt})
 
 
 @login_required
 def all_sales(request):
-    sales = Sales.objects.all().order_by('-id')
+    sales = Sale.objects.all().order_by('-id')
     total_expected = sum([items.get_total() or 0  for items in sales])
     total = sum([items.amount_received or 0 for items in sales])
     total_change = sum([items.get_change() or 0  for items in sales])
     net = total_expected - total
-    return render(request, 'digitalbook/all_sales.html', {'sales': sales, 'total':total, 'total_change':total_change, 'net':net, 'total_expected':total_expected})
-
+    return render(request, 'kgl/all_sales.html', {'sales': sales, 'total': total, 'total_change': total_change, 'net': net, 'total_expected': total_expected})
 def deffered_payments(request):
     if request.method == 'POST':
         form = Deffered_paymentsForm(request.POST)

@@ -25,7 +25,7 @@ class Stockx(models.Model):
 
 #used by the sales agent.
 # associating property "item" wz the stock kept in the "Stockx" model or table.
-class Sales(models.Model):
+class Sale(models.Model):
     branch_name = models.CharField(max_length=50, null =True, blank=True,)
     seller = models.CharField(max_length=50, null =True, blank=True)
     item = models.ForeignKey(Stockx, on_delete=models.CASCADE)
