@@ -2,70 +2,70 @@
 {% block extra_css %}
 <style>
   /* Hide table headers visually but keep them accessible for screen readers */
-.table thead {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* Style for each card (table row) */
-.table tbody tr {
-  display: flex;
-  flex-direction: column;
-  background-color: ;
-  border: 1px solid brown;
-  border-radius: 0.25rem;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-}
-
-/* Style for each piece of information in the card */
-.table tbody td {
-  display: flex;
-  padding: 0.5rem 0;
-  border: none;
-}
-
-/* Add labels for each piece of information */
-.table tbody td::before {
-  content: attr(data-label);
-  font-weight: bold;
-  width: 40%;
-  margin-right: 1rem;
-}
-
-/* Adjust button styles */
-.table tbody td .btn {
-  width: 100% !important;
-  height: auto !important;
-  margin-top: 0.5rem;
-}
-
-/* Responsive layout for larger screens */
-@media (min-width: 768px) {
-  .table tbody {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  .table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
+
+  /* Style for each card (table row) */
+  .table tbody tr {
+    display: flex;
+    flex-direction: column;
+    background-color: ;
+    border: 1px solid brown;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+
+  /* Style for each piece of information in the card */
+  .table tbody td {
+    display: flex;
+    padding: 0.5rem 0;
+    border: none;
+  }
+
+  /* Add labels for each piece of information */
+  .table tbody td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    width: 40%;
+    margin-right: 1rem;
+  }
+
+  /* Adjust button styles */
+  .table tbody td .btn {
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 0.5rem;
+  }
+
+  /* Responsive layout for larger screens */
+  @media (min-width: 768px) {
+    .table tbody {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
 
   .table tbody tr {
     width: calc(50% - 0.5rem);
   }
-}
-
-@media (min-width: 992px) {
-  .table tbody tr {
-    width: calc(33.333% - 0.67rem);
   }
-}
+
+  @media (min-width: 992px) {
+    .table tbody tr {
+      width: calc(33.333% - 0.67rem);
+    }
+  }
 </style>
 {% endblock %}
  {% block content%}
@@ -92,7 +92,8 @@
         <th scope="col">Item Name</th>
         <th scope="col">Quantity</th>
         <th scope="col">Unit Price(UGX)</th> 
-        <th scope="col">View</th>  
+        <th scope="col">Check Out</th>  
+        <th scope="col">Update</th>
         <th scope="col">Delete</th>
       </tr>
     </thead>
@@ -105,12 +106,16 @@
         <td data-label="Unit Price">UGX{{product.unit_price}}</td>
         <td data-label="View">
           <a href="{% url 'product_detail' product.id %}">
-            <button class="btn btn-outline-primary btn font-weight-bolder">View Details</button>
+            <button class="btn btn-outline-primary btn font-weight-bolder">Check Out</button>
           </a>
+        </td>
+        <td data-label="Update Stock">
+          <button class="btn btn-outline-danger btn"><a href="{% url 'add_to_stock' product.id %}" class="text-black">Update Stock</a></button>
         </td>
         <td data-label="Delete">
           <button class="btn btn-outline-danger btn" data-toggle="modal" data-target="#deleteModal{{product.id}}">Delete Item</button>
         </td>
+        
       </tr>
       </tr>
 
@@ -140,5 +145,7 @@
     </tbody> 
 
   </table>
+  <button type="submit" class="btn btn-outline-success primary" style="width: 100px; height: 50px;"><a href="/receipt" style="text-decoration:none; color:orange; font-weight:bolder;">Back</a></button>
+
 </div>
 {% endblock%}

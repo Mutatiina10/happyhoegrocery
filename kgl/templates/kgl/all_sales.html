@@ -83,35 +83,40 @@
 <div class="container">
   <h1 class="text-center">TOTAL SALES MADE</h1><br>
     
-    <div class="row text-center">
-        <div class="col-lg-4">
+    <div class="row text-center"style=" 
+    border: 1px solid blue;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);">
+        <div class="col-lg-3">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Total Amount Expected </h5>
+                    <h5 class="card-title"> Amount Expected </h5>
                     <p class="card-text">UGX{{total_expected}}</p>
                 </div>
             </div>
         </div>
-    <div class="row text-center">
-        <div class="col-lg-4">
+    
+        <div class="col-lg-3">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Total Amount Received</h5>
+                    <h5 class="card-title">Amount Received</h5>
                     <p class="card-text">UGX{{total}}</p>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="card">
                 <div class="card-body">
                     
-                    <h5 class="card-title">Total Debt Issued </h5>
+                    <h5 class="card-title"> Debt Issued </h5>
                     <p class="card-text">UGX{{total_change}}</p>
               
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Net Amount</h5>
@@ -121,7 +126,12 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container" style=" 
+    border: 1px solid blue;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);">
     <div class="card" style="transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.2)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'; this.style.transform='translateY(0)';">
       <div class="card-body">
         <table class="table">
@@ -153,4 +163,6 @@
       </div>
     </div>
   </div>
+  <button type="submit" class="btn btn-outline-success primary" style="width: 100px; height: 50px;"><a href="/receipt" style="text-decoration:none; color:orange; font-weight:bolder;">Back</a></button>
+</div>
 {% endblock%}

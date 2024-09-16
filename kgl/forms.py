@@ -27,6 +27,7 @@ class StockxForm(ModelForm):
         fields = '__all__'
 
 class AddForm(ModelForm):
+    total_quantity = forms.IntegerField(required=True)
     class Meta:
         model = Stockx
         fields = ['total_quantity']

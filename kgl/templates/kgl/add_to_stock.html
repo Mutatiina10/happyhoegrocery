@@ -12,10 +12,13 @@
   
     <div class="container container-fluid">
       
-        <form id = "form" method="POST" class = "loginform" style="border-radius: 25px;
-        border: 2px solid #19d4fc;  padding: 20px;
-        width: 400px;
-        height: 350px; "> 
+        <form id = "form" method="POST" class = "loginform"
+        style=" 
+            border: 1px solid green;
+            border-radius: 0.25rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);">
             {% csrf_token %}  
             {{form | crispy}}
             <br> <br> 
@@ -24,5 +27,7 @@
                          
       </form>      
     </div>
+    <button type="submit" class="btn btn-outline-success primary" style="width: 100px; height: 50px;"><a href="/receipt" style="text-decoration:none; color:orange; font-weight:bolder;">Back</a></button>
+
 </div>  
 {% endblock %}

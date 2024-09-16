@@ -12,8 +12,8 @@ from django.db.models import Sum
 from .models import Sale
 # Create your views here.
 def index(request):
-    products = Stockx.objects.all().order_by('-id')
-    return render(request,"kgl/index.html", {'products': products})
+    products = Product.objects.all()
+    return render(request, 'kgl/index.html', {'products': products})
 
 #def sample(request):
    # products = Stockx.objects.all()
