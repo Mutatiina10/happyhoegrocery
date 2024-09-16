@@ -1,5 +1,70 @@
 {% extends 'kgl/base.html'%}
- {% block content%}
+
+{% block extra_css %}
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-header {
+    background-color: #f8f9fa;
+    border-bottom: none;
+    font-weight: bold;
+    padding: 20px;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card-title {
+    color: #007bff;
+    margin-bottom: 15px;
+  }
+  
+  .card-text {
+    margin-bottom: 10px;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 576px) {
+    .container {
+      padding: 0 15px;
+    }
+    
+    .card {
+      margin-bottom: 15px;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
 <br><br>
 <div class="container">
   <h1 class="card-header text-center">ALL RECEIPTS</h1><br>

@@ -14,14 +14,22 @@
     />
     <!-- Montserrat font -->
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-<style>
-    footer{
-    color: #000;
-    text-align: center;
-    background: #ac6824;
-    width: 100%;
-}
-</style>
+    <style>
+        footer{
+        color: #000;
+        text-align: center;
+        background: #ac6824;
+        width: 100%;
+        }
+        
+        /* New styles for product images */
+        .product-box .bg-light img {
+            height: 300px; /* Set a fixed height for all product images */
+            object-fit: cover; /* Ensure the image covers the area without distortion */
+            border-radius: 15px; /* Add rounded corners */
+            width: 100%; /* Make sure the image takes full width of its container */
+        }
+    </style>
    
 </head>
 <body>
@@ -263,11 +271,14 @@
   <br><br><br>
    <div class="d-grid gap-2 col-6 mx-auto">
     <div class="text-center">
-      <footer class="">
-        <div class="footer">
-          &copy; Happy Hoe Grocery <br> Designed by MUTATIINA N. EDGAR 
-        </footer>
-      </footer>
+        <footer className="fixed bottom-0 left-0 w-full bg-gray-800 text-white py-4">
+            <div className="container mx-auto px-4 flex items-center justify-center">
+              <Copyright className="w-4 h-4 mr-2" />
+              <p className="text-sm">
+                Copyright © 2024 KGL. All rights reserved. <br>Designedby Mutatiina N Edgar
+              </p>
+            </div>
+          </footer>
     </div>
    </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

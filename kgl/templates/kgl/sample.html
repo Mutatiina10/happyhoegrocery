@@ -1,58 +1,70 @@
-{% extends 'Grocery_app/base.html'%} {% block content%}
+{% extends 'kgl/base.html' %}
+ {% block content%}
 <br></br>
 
-<div class = "container">
-<h1 class = "text-center">TOTAL SALES MADE</h1><br>
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Total Amount Expected</th>
-        <th scope="col">Total Amount Received</th>
-        <th scope="col">Total Debt</th>
-        <th scope="col">Net Amount</th>
-      </tr>
-    </thead>  
-    <tbody>
-      <tr>    
-        <td>UGX{{total_expected}}</td>
-        <td>UGX{{total}}</td>
-        <td>UGX{{total_change}}</td>
-        <td>UGX{{net}}</td>
-      </tr>
-    </tbody>
-  </table>
+{% load static %}
+
+<br></br>
+
+<div class = "container-fluid">
+  <form class="d-flex">
+   {{ product_filters.form.as_p }} 
+    <button class="btn btn-outline-danger btn" style="width: 120px; height: 30px;" type="submit" method="POST">Search</button>
+  </form>
 </div>
-<br></br>
+<br>
+
 
 <div class = "container">
   <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">Customer name</th>
-        <th scope="col">Item Bought</th>
+        <th scope="col">Branch</th>
+        <th scope="col">Item Name</th>
         <th scope="col">Quantity</th>
-        <th scope="col">Unit Price(UGX)</th>
-        <th scope="col">Total Cost</th>
-        <th scope="col">Amount Paid</th>
-        <th scope="col">Change Collected</th>
+        <th scope="col">Unit Price(UGX)</th> 
+        <th scope="col">View</th>  
+        <th scope="col">Delete</th>
       </tr>
     </thead>
-    {% for sale in sales %}
     <tbody>
-      <tr> 
-        <!--<a href="/receipt_detail/{{ sale.id }}"></a>-->   
-        <td>{{sale.issued_to | title}}</td>
-        <td>{{sale.item | title}}</td>
-        <td>{{sale.quantity}}</td>
-        <td>UGX{{sale.unit_price}}</td>
-        <td>UGX{{sale.get_total}}</td>
-        <td>UGX{{sale.amount_received}}</td>
-        <td>UGX{{sale.get_change}}</td>
+      {% for product in products %}
+      <tr>    
+        <td>{{product.stock_branch_name}}</td>
+        <td>{{product.item_name}}</td>
+        <td>{{product.total_quantity}}</td>
+        <td>UGX{{product.unit_price}}</td>
+        <td><a href="{% url 'product_detail' product.id %}"><button class="btn btn-outline-primary btn font-weight-bolder" style="width: 100px; height: 50px;">View Details</button></a></td>
+        <td>
+          <button class="btn btn-outline-danger btn" style="width: 120px; height: 50px;" data-toggle="modal" data-target="#deleteModal{{product.id}}">Delete Item</button>
+        </td>
       </tr>
-    </tbody>
-    {% endfor %}
+
+      <!-- Delete Confirmation Modal -->
+      <div class="modal fade" id="deleteModal{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{product.id}}" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModalLabel{{product.id}}">Confirm Deletion</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to delete this item?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <a href="{% url 'delete_detail' product.id %}">
+                <button type="button" class="btn btn-danger">Delete</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </tbody> 
+
   </table>
-</div><br><br>
-
-
+</div>
 {% endblock%}

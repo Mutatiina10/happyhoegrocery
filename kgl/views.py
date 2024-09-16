@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect, get_object_or_404, redirect
 from django.http import HttpResponse,HttpResponseRedirect
 from django.urls import reverse
+from . import forms
 from .filters import StockxFilter
 #accessing our models so that we can get content out oof them.
 from .models import * #(* assitaris means"all" or write all the models you created by listing them with commas)
@@ -107,6 +108,7 @@ def all_sales(request):
     total_change = sum([items.get_change() or 0  for items in sales])
     net = total_expected - total
     return render(request, 'kgl/all_sales.html', {'sales': sales, 'total': total, 'total_change': total_change, 'net': net, 'total_expected': total_expected})
+
 def deffered_payments(request):
     if request.method == 'POST':
         form = Deffered_paymentsForm(request.POST)
@@ -169,7 +171,7 @@ def add_to_stock(request, pk):
         # confirming that if some submits to send the submiiting request, 
         # if the form is valid , proceed 
         if form.is_valid():
-            # filtering the field posted from the form is converted to interger and gv to da added quantity variable
+            # filtering the field posted from the form is converted to interger and give to da added quantity variable
             added_quantity = int(request.POST['total_quantity'])
             # here were adding the quantity coming from the form and add it wz da value currently in the database"issued_total_quantity"
             issued_item.total_quantity += added_quantity

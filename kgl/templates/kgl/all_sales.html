@@ -1,11 +1,87 @@
 {% extends 'kgl/base.html'%}
+{% block extra_css %}
+<style>
+    .container {
+      background-color: ;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+  
+    .container:hover {
+      background-color: ; /* light blue color */
+    }
+  
+    .card {
+      margin-bottom: 20px;
+    }
+  
+    .table {
+      background-color: white;
+    }
+  
+    @media screen and (max-width: 600px) {
+      table thead {
+        display: none;
+      }
+      
+      table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+      }
+      
+      table tr {
+        margin-bottom: 15px;
+      }
+      
+      table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+      
+      table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+      }
+    }
+    .container {
+        background-color: ;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+      }
+    
+      .container:hover {
+        background-color: ; /* light blue color */
+      }
+    
+      .card {
+        margin-bottom: 20px;
+      }
+    
+      .table {
+        background-color: white;
+      }
+  </style>
+{% endblock  %}
  {% block content%}
 {% load static %}
+
 <br></br>
 
 <div class="container">
   <h1 class="text-center">TOTAL SALES MADE</h1><br>
-
     
     <div class="row text-center">
         <div class="col-lg-4">
@@ -45,32 +121,36 @@
         </div>
     </div>
 </div>
-<div class = "container">
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Customer name</th>
-        <th scope="col">Item Bought</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Unit Price(UGX)</th>
-        <th scope="col">Total Cost</th>
-        <th scope="col">Amount Paid</th>
-        <th scope="col">Change Collected</th>
-      </tr>
-    </thead>
-    {% for sale in sales %}
-    <tbody>
-      <tr>    
-        <td>{{sale.issued_to | title}}</td>
-        <td>{{sale.item | title}}</td>
-        <td>{{sale.quantity}}</td>
-        <td>UGX{{sale.unit_price}}</td>
-        <td>UGX{{sale.get_total}}</td>
-        <td>UGX{{sale.amount_received}}</td>
-        <td>UGX{{sale.get_change}}</td>
-      </tr>
-    </tbody>
-    {% endfor %}
-  </table>
-</div>
+<div class="container">
+    <div class="card" style="transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" onmouseover="this.style.boxShadow='0 8px 16px rgba(0,0,0,0.2)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'; this.style.transform='translateY(0)';">
+      <div class="card-body">
+        <table class="table">
+          <thead class="thread-dark">
+            <tr>
+              <th scope="col">Customer name</th>
+              <th scope="col">Item Bought</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Unit Price(UGX)</th>
+              <th scope="col">Total Cost</th>
+              <th scope="col">Amount Paid</th>
+              <th scope="col">Change Collected</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for sale in sales %}
+              <tr>    
+                <td data-label="Customer Name">{{sale.issued_to | title}}</td>
+                <td data-label="Item">{{sale.item | title}}</td>
+                <td data-label="Quantity">{{sale.quantity}}</td>
+                <td data-label="Unit Price">UGX{{sale.unit_price}}</td>
+                <td data-label="Total Cost">UGX{{sale.get_total}}</td>
+                <td data-label="Amount Paid">UGX{{sale.amount_received}}</td>
+                <td data-label="Change">UGX{{sale.get_change}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 {% endblock%}

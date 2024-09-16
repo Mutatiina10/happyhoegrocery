@@ -1,4 +1,73 @@
 {% extends 'kgl/base.html' %}
+{% block extra_css %}
+<style>
+  /* Hide table headers visually but keep them accessible for screen readers */
+.table thead {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Style for each card (table row) */
+.table tbody tr {
+  display: flex;
+  flex-direction: column;
+  background-color: ;
+  border: 1px solid brown;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Style for each piece of information in the card */
+.table tbody td {
+  display: flex;
+  padding: 0.5rem 0;
+  border: none;
+}
+
+/* Add labels for each piece of information */
+.table tbody td::before {
+  content: attr(data-label);
+  font-weight: bold;
+  width: 40%;
+  margin-right: 1rem;
+}
+
+/* Adjust button styles */
+.table tbody td .btn {
+  width: 100% !important;
+  height: auto !important;
+  margin-top: 0.5rem;
+}
+
+/* Responsive layout for larger screens */
+@media (min-width: 768px) {
+  .table tbody {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .table tbody tr {
+    width: calc(50% - 0.5rem);
+  }
+}
+
+@media (min-width: 992px) {
+  .table tbody tr {
+    width: calc(33.333% - 0.67rem);
+  }
+}
+</style>
+{% endblock %}
  {% block content%}
 <br></br>
 
@@ -29,15 +98,20 @@
     </thead>
     <tbody>
       {% for product in products %}
-      <tr>    
-        <td>{{product.stock_branch_name}}</td>
-        <td>{{product.item_name}}</td>
-        <td>{{product.total_quantity}}</td>
-        <td>UGX{{product.unit_price}}</td>
-        <td><a href="{% url 'product_detail' product.id %}"><button class="btn btn-outline-primary btn font-weight-bolder" style="width: 100px; height: 50px;">View Details</button></a></td>
-        <td>
-          <button class="btn btn-outline-danger btn" style="width: 120px; height: 50px;" data-toggle="modal" data-target="#deleteModal{{product.id}}">Delete Item</button>
+      <tr>
+        <td data-label="Branch">{{product.stock_branch_name}}</td>
+        <td data-label="Item Name">{{product.item_name}}</td>
+        <td data-label="Quantity">{{product.total_quantity}}</td>
+        <td data-label="Unit Price">UGX{{product.unit_price}}</td>
+        <td data-label="View">
+          <a href="{% url 'product_detail' product.id %}">
+            <button class="btn btn-outline-primary btn font-weight-bolder">View Details</button>
+          </a>
         </td>
+        <td data-label="Delete">
+          <button class="btn btn-outline-danger btn" data-toggle="modal" data-target="#deleteModal{{product.id}}">Delete Item</button>
+        </td>
+      </tr>
       </tr>
 
       <!-- Delete Confirmation Modal -->

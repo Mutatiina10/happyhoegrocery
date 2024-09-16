@@ -1,6 +1,58 @@
-{% extends 'kgl/base.html'%} 
+{% extends 'kgl/base.html'%}
+{% load static %} 
+{% block extra_css %}
+<style>
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .table {
+    background-color: ;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .table thead {
+    display: none;
+  }
+  
+  .table tbody tr {
+    display: block;
+    padding: 20px;
+    border-bottom: 1px solid #000;
+  }
+  
+  .table tbody tr:last-child {
+    border-bottom: none;
+  }
+  
+  .table tbody td {
+    display: block;
+    padding: 5px 0;
+  }
+  
+  .table tbody td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: inline-block;
+    width: 120px;
+  }
+  
+  .btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .btn-secondary {
+    flex: 1;
+    margin: 0 10px;
+  }
+</style>
+{% endblock  %}
 {% block content%}
-{% load static %}
 <br></br>
 
 
@@ -17,10 +69,10 @@
     </thead>
     <tbody>
       <tr>    
-        <td>{{product.stock_branch_name}}</td>
-        <td>{{product.item_name}}</td>
-        <td>{{product.total_quantity}}</td>
-        <td>UGX{{product.unit_price}}</td>   
+        <td data-label="Branch">{{product.stock_branch_name}}</td>
+        <td data-label="Item Name">{{product.item_name}}</td>
+        <td data-label="Quantity">{{product.total_quantity}}</td>
+        <td data-label="Unit Price">UGX{{product.unit_price}}</td>   
       </tr>
     </tbody>  
   </table>
